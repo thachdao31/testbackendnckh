@@ -51,6 +51,16 @@ const StudentController = {
         if (!Model) return res.status(400).json({ message: "Invalid role" });
 
         baseController.createMany(Model, req, res);
+    },
+    // get many user by id
+    getManyUser: async (req, res) => {
+        const modelName = req.query.role;
+        let Model = models[modelName];
+        console.log(Model);
+        if (!Model) Model = User;
+
+
+        baseController.getMany(Model, req, res);
     }
 }
 

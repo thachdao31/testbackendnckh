@@ -90,6 +90,21 @@ const baseController = {
             console.log(err)
             res.status(500).json({message:"create failed"});
         }
+    },
+    getMany: async (model, req, res) => { 
+        try {
+            const data = req.body;
+            const dataGet = await model.find({_id: {$in: data.listId}});
+            res.status(200).json({
+                message: "get success",
+                data: dataGet
+            })
+
+        }
+        catch (err) {
+            console.log(err)
+            res.status(500).json({message:"get failed"});
+        }
     }
 }
 

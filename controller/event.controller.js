@@ -19,7 +19,7 @@ const EventController = {
             const event = await Event.findById(req.params.eventId);
             if (event) {
                 const user = req.body.userId;
-                if (!event.checkIn.includes(user)) {
+                if (!event.checkIn.includes(user) && !event.checkOut.includes(user)) {
                     event.checkIn.push(user);
                     await event.save();
                     res.json(event);
