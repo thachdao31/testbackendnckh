@@ -33,8 +33,16 @@ const eventSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        // required: true
+        required: true
     },
+    location: {
+        type: String,
+        required: true
+    },
+    provider: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Event', eventSchema);
