@@ -24,12 +24,14 @@ const classRoutes = require("./routes/class.routes");
 const facultyRoutes = require("./routes/faculty.routes");
 const authRoutes = require("./routes/auth.routes");
 const eventRoutes = require("./routes/event.routes");
+const fileRoutes = require("./routes/file.routes");
 
 app.use("/api/users", userRoutes);
 app.use("/api/class", classRoutes);
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/files", fileRoutes)
 
 
 app.use((err, req, res, next) => {

@@ -16,6 +16,9 @@ const FacultyController = {
     },
     deleteFaculty: async ( req, res) => {
         baseController.delete(Faculty, req, res);
+    },
+    getManyFaculty: async (req, res) => {
+        baseController.getMany(Faculty, req, res);
     }
 }
 

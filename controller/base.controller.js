@@ -44,7 +44,7 @@ const baseController = {
         }
         catch(e) {
             console.log(e)
-            res.json({
+            res.status(500).json({
                 message: "create fail",
                 data: e
             })
@@ -99,7 +99,7 @@ const baseController = {
                 message: "get success",
                 data: dataGet
             })
-
+            
         }
         catch (err) {
             console.log(err)

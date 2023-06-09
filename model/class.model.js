@@ -6,7 +6,16 @@ const classSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    faculty: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Faculty',
+        required: true
+    },
+    year: {
+        type: Number,
+        required: true
+    }
 })
 
-module.exports = mongoose.model('Class', classSchema);
+module.exports = mongoose.model('Classes', classSchema);
 

@@ -19,7 +19,7 @@ const authController = {
       console.log("id", _id, "password", password)
       const user = await User.findOne({ userId: _id });
       if (!user) {
-        return res.status(401).json({ message: 'Invalid id or password' });
+        return res.status(401).json({ message: 'Sai tên đăng nhập hoặc mật khẩu' });
       }
 
       // Check if password is correct
@@ -48,7 +48,7 @@ const authController = {
 
       const validPassword = await bcrypt.compare(password, user.password);
       if (!validPassword) {
-        return res.status(401).json({ message: 'Invalid email or password' });
+        return res.status(401).json({ message: 'Sai tên đăng nhập hoặc mật khẩu' });
       }
       if (user && validPassword) {
         const accessToken = await authController.generateAccessToken(user);
@@ -67,7 +67,7 @@ const authController = {
       }
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: 'Internal server error' });
+      return res.status(500).json({ message: 'Lỗi hệ thống' });
     }
   },
   generateAccessToken: async (user) => {
